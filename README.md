@@ -24,7 +24,7 @@ It inherits marked's features plus makes the following additions and changes:
 ```
 
 **Output**
-```
+```html
 <div class="columns" style="display:flex">
   <div class="column" style="order:0">
     <h2 id="col-1">Col 1</h2>
@@ -54,13 +54,13 @@ _This used to be italic but makes more sense as an underline._
 ```
 
 **Output**
-```
+```html
 <span class="underline"><u>This used to be italic but makes more sense as an underline.</u></span>
 ```
 
 > Depending on your use case either the span or the u tag will be better, but having both will get both an appropriate default appearance and the option of a non-deprecated alternative with this in your stylesheet:
 > 
-> ```
+> ```css
 > .underline {
 >   text-decoration: underline;
 > }
@@ -68,7 +68,7 @@ _This used to be italic but makes more sense as an underline._
 
 ## Changes
 
-> These changes can be disabled by choosing setting the pedantic option from marked to `true`.
+> These changes can be disabled by choosing setting the pedantic option from marked to `true`. This will disable underlines from underscores.
 
 ### Bold and Italic are reversed
 Despite bold being much more common, italic would need only one star on either side whereas bold would need two; **that has been swapped around**.
