@@ -1,5 +1,5 @@
 {
-  "name": "nicemark",
+  "name": "nicemark", 
   "description": "A markdown parser built for speed",
   "author": "Tom Golden",
   "version": "0.0.1",
