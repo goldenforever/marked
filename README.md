@@ -73,8 +73,8 @@ _This used to be italic but makes more sense as an underline._
 ### Bold and Italic are reversed
 Despite bold being much more common, italic would need only one star on either side whereas bold would need two; **that has been swapped around**.
 
-Before: `*text*` => `<em>text</em>`, and `**text**` => `<strong>text</strong>`.  
-After: `*text*` => `<strong>text</strong>`, and `**text**` => `<em>text</em>`.
+Before: `*text*` --> `<em>text</em>`, and `**text**` --> `<strong>text</strong>`.  
+After: `*text*` --> `<strong>text</strong>`, and `**text**` --> `<em>text</em>`.
 
 ### Bold and Italic Don't Accept Underscores
 The `<strong>` and `<em>` tags will not be rendered by underscores on either side, as the underline uses it.
