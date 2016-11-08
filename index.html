@@ -9,47 +9,13 @@
         <script type="text/javascript">
             document.querySelector('#out').innerHTML = marked(
 `
-# This is a **test**
-
-] ## Col 1
-] 
-] Paragraph.
-    ] ## Col 3
-    ]
-    ] Paragraph.
-     ] ## Col 4
-     ]
-     ] Paragraph.
-       ] ## Col 5
-       ]
-       ] - Hello
-       ] - World
-       ]
-       ] Paragraph.
- ] ## Col 2
- ]
- ] Paragraph.
-
-} } div city
-} } 
-} } same div
-}
-} > 
-}
-} } other div
-
-> > div city
-> > 
-> > same div
->
-> } 
->
-> > other div
-
-
+Let's watch **this *_total_*** *carnage* _unfold_.
 `);
         </script>
         <style>
+            .columns {
+                min-width: 100%;
+            }
             .column {
                 flex-grow: 1;
                 padding: 0 15px;
