@@ -4,8 +4,8 @@
 
 It inherits marked's features plus makes the following additions and changes:
 
-### Additions
-##### Columns
+## Additions
+### Columns
 **Input**
 ```
 ] ## Col 1
@@ -47,7 +47,7 @@ It inherits marked's features plus makes the following additions and changes:
 </div>
 ```
 
-##### Underline
+### Underline
 **Input**
 ```
 _This used to be italic but makes more sense as an underline._
@@ -66,20 +66,20 @@ _This used to be italic but makes more sense as an underline._
 > }
 > ```
 
-### Changes
+## Changes
 
 > These changes can be disabled by choosing setting the pedantic option from marked to `true`.
 
-##### Bold and Italic are reversed
+### Bold and Italic are reversed
 Despite bold being much more common, italic would need only one star on either side whereas bold would need two; **that has been swapped around**.
 
 Before: `*text*` => `<em>text</em>`, and `**text**` => `<strong>text</strong>`.  
 After: `*text*` => `<strong>text</strong>`, and `**text**` => `<em>text</em>`.
 
-##### Bold and Italic Don't Accept Underscores
+### Bold and Italic Don't Accept Underscores
 The `<strong>` and `<em>` tags will not be rendered by underscores on either side, as the underline uses it.
 
-### Usage
+## Usage
 See [marked's page](https://github.com/chjj/marked) for its excellent usage instructions.
 
 I have for now kept the relevant functions named as 'marked' as it has not really been changed so much as to justify a full name change yet.
