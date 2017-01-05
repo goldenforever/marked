@@ -2,7 +2,7 @@
 
 > nicemark is a simple extension to the fantastic and fast marked JavaScript compiler.
 
-#### **[Try it now!](http://goldenforever.github.io)**
+### **[Try it now!](http://goldenforever.github.io)**
 
 It inherits marked's features plus makes the following additions and changes:
 
