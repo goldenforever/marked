@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WYSIWYG Nicemark Editor</title>
+<style type="text/css" media="screen">
+    html, body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    #fullpage, #view, #editor { 
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    #editorcontainer, #viewcontainer {
+        height: 50vh;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    @media (min-width: 800px) {
+        #editorcontainer, #viewcontainer {
+            height: 100vh;
+            width: 50vw;
+            display: inline-block;
+        } 
+        #fullpage, #view, #editor { 
+            left: -2px;
+            right: -2px;
+        }
+    }
+</style>
+</head>
+<body>
+  <div id="fullpage">
+    <div id="editorcontainer">
+      <div id="editor">function foo(items) {
+      var x = "All this is syntax highlighted";
+      return x;
+      }</div>
+    </div>
+    <div id="viewcontainer">
+      <div id="view">function foo(items) {
+      var x = "All this is syntax highlighted";
+      return x;
+      }</div>
+    </div>
+  </div>
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="marked.min.js"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/markdown");
+
+    editor.on("change", update); 
+
+    var view = document.getElementById('view');
+
+    if (localStorage.getItem("text") !== null) {
+      editor.setValue(localStorage.getItem("text"));
+    }
+
+    function update() {
+      console.log(editor.getValue());
+
+      view.innerHTML = marked(editor.getValue());
+
+      localStorage.setItem("text", editor.getValue());
+    }
+</script>
+</body>
+</html>
