@@ -39,21 +39,15 @@
 <body>
   <div id="fullpage">
     <div id="editorcontainer">
-      <div id="editor">function foo(items) {
-      var x = "All this is syntax highlighted";
-      return x;
-      }</div>
+      <div id="editor"></div>
     </div>
     <div id="viewcontainer">
-      <div id="view">function foo(items) {
-      var x = "All this is syntax highlighted";
-      return x;
-      }</div>
+      <div id="view"></div>
     </div>
   </div>
     
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="marked.min.js"></script>
+<script src="nicemark.min.js"></script>
 <script>
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/monokai");
@@ -65,12 +59,91 @@
 
     if (localStorage.getItem("text") !== null) {
       editor.setValue(localStorage.getItem("text"));
+    } else {
+      editor.setValue(`Let's watch **this *_total_*** *carnage* _unfold_.
+
+_This used to be italic but makes more sense as an underline_.
+
+} ## Div 0
+}
+} } ## Div 0.0
+} } } ## Div 0.0.0
+} }
+} } } ## Div 0.0.1
+
+> > This is a nested blockquote
+> > which makes sense to continue to here...
+>   
+> > ...but not to here. In the original spec,
+> > these would be part of the same blockquote
+> > but this has been changed to keep them
+> > separate as a result of the empty line.
+
+] ### Col 1
+] 
+] Hai
+    ] ### Col 2
+    ]
+    ] > This is a blockquote
+        ] ### Col 3
+        ]
+        ] This     | is   | a        | table
+        ] :--------|:-----|:---------|:------
+        ] Complete | with | separate | cells
+        ]
+            ] ### Col 4
+            ]
+            ] :D
+
+    
+<style>
+    #view {
+        padding: 10px 20px;
+        width: 80%;
+        max-width: 700px;
+        margin: 0 auto;
+        border: solid #ddd;
+        border-width: 0 4px;
+        overflow: auto;
+    }
+
+    .columns {
+        border: 1px solid #ccc;
+        overflow-x: auto;
+    }
+
+    .column {
+        padding: 0 10px;
+    }
+    .column:nth-child(2n) {
+        background-color: #ccc;
+    }
+    
+    th {
+        border: solid black;
+        border-width: 1px 0;
+    }
+    
+    tr th:nth-child(2n-1),
+    tr:nth-child(2n) td:nth-child(2n-1),
+    tr:nth-child(2n-1) td:nth-child(2n) {
+        background-color: #eee;
+    }
+    
+    blockquote {
+        margin-left: 0;
+        margin-right: 15px;
+        border-left: 4px solid #666;
+        padding: 2px 15px 2px 15px;
+        background-color: rgba(0,0,0,.2);
+    }
+</style>`);
     }
 
     function update() {
       console.log(editor.getValue());
 
-      view.innerHTML = marked(editor.getValue());
+      view.innerHTML = nicemark(editor.getValue());
 
       localStorage.setItem("text", editor.getValue());
     }

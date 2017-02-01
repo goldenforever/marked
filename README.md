@@ -2,7 +2,7 @@
 
 > nicemark is a simple extension to the fantastic and fast marked JavaScript compiler.
 
-It inherits marked's features plus makes the following additions and changes:
+It inherits [marked](github.com/chjj/marked)'s features plus makes the following additions and changes:
 
 ## Additions
 ### Columns
@@ -68,7 +68,7 @@ _This used to be italic but makes more sense as an underline._
 
 ## Changes
 
-> These changes can be disabled by choosing setting the pedantic option from marked to `true`. This will disable underlines from underscores.
+> These changes can be disabled by choosing setting the pedantic option to `true`. This will disable underlines from underscores.
 
 ### Bold and Italic are reversed
 Despite bold being much more common, italic would need only one star on either side whereas bold would need two; **that has been swapped around**.
@@ -80,6 +80,51 @@ After: `*text*` --> `<strong>text</strong>`, and `**text**` --> `<em>text</em>`.
 The `<strong>` and `<em>` tags will not be rendered by underscores on either side, as the underline uses it.
 
 ## Usage
-See [marked's page](https://github.com/chjj/marked) for its excellent usage instructions.
 
-I have for now kept the relevant functions named as 'marked' as it has not really been changed so much as to justify a full name change yet.
+Minimal usage:
+
+```js
+var marked = require('marked');
+console.log(marked('I am using __markdown__.'));
+// Outputs: <p>I am using <strong>markdown</strong>.</p>
+```
+
+Example setting options with default values:
+
+```js
+var marked = require('marked');
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+  smartypants: false
+});
+
+console.log(marked('I am using __markdown__.'));
+```
+
+### Browser
+
+```html
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Marked in the browser</title>
+  <script src="lib/marked.js"></script>
+</head>
+<body>
+  <div id="content"></div>
+  <script>
+    document.getElementById('content').innerHTML =
+      marked('# Marked in browser\n\nRendered by **marked**.');
+  </script>
+</body>
+</html>
+```
+
+For any further documentation, check out chjj/[marked](https://github.com/chjj/marked) for some (excellent) usage instructions.
