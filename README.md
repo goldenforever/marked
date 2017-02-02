@@ -89,17 +89,17 @@ The `<strong>` and `<em>` tags will not be rendered by underscores on either sid
 Minimal usage:
 
 ```js
-var marked = require('marked');
-console.log(marked('I am using __markdown__.'));
-// Outputs: <p>I am using <strong>markdown</strong>.</p>
+var nicemark = require('nicemark');
+console.log(nicemark('I am using __markdown__.'));
+// Outputs: <p>I am using <strong>nicemark</strong>.</p>
 ```
 
 Example setting options with default values:
 
 ```js
-var marked = require('marked');
-marked.setOptions({
-  renderer: new marked.Renderer(),
+var nicemark = require('nicemark');
+nicemark.setOptions({
+  renderer: new nicemark.Renderer(),
   gfm: true,
   tables: true,
   breaks: false,
@@ -109,7 +109,7 @@ marked.setOptions({
   smartypants: false
 });
 
-console.log(marked('I am using __markdown__.'));
+console.log(nicemark('I am using __markdown__.'));
 ```
 
 ### Browser
@@ -119,17 +119,17 @@ console.log(marked('I am using __markdown__.'));
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>Marked in the browser</title>
-  <script src="lib/marked.js"></script>
+  <title>NiceMark in the browser</title>
+  <script src="nicemark.min.js"></script>
 </head>
 <body>
   <div id="content"></div>
   <script>
     document.getElementById('content').innerHTML =
-      marked('# Marked in browser\n\nRendered by **marked**.');
+      nicemark('# Nicemark in browser\n\nRendered by **nicemark**.');
   </script>
 </body>
 </html>
 ```
 
-For any further documentation, check out chjj/[marked](https://github.com/chjj/marked) for some (excellent) usage instructions.
+For any further documentation, check out chjj/[marked](https://github.com/chjj/marked) for (some excellent) usage instructions.
