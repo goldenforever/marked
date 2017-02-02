@@ -2,17 +2,16 @@
 
 > nicemark is a simple extension to the fantastic and fast marked JavaScript compiler.
 
-<<<<<<< HEAD
-It inherits [marked](github.com/chjj/marked)'s features plus makes the following additions and changes:
-=======
 ### **[Try it now!](http://goldenforever.github.io)**
 
 It inherits marked's features plus makes the following additions and changes:
->>>>>>> d028357b4a98020e51b6e839b867f80aeb79121f
 
 ## Additions
+
 ### Columns
+
 **Input**
+
 ```
 ] ## Col 1
 ]
